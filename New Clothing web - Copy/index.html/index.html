@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>www.svdwear</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #000; color: #fff; }
+
+    nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #111;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  opacity: 0; /* start hidden for animation */
+}
+nav a {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 0.6s forwards;
+}
+
+nav a:nth-child(1) { animation-delay: 0.3s; }
+nav a:nth-child(2) { animation-delay: 0.45s; }
+nav a:nth-child(3) { animation-delay: 0.6s; }
+nav a:nth-child(4) { animation-delay: 0.75s; }
+nav a:nth-child(5) { animation-delay: 0.9s; }
+
+    }
+
+    nav h1 { font-size: 1.5rem; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      position: relative;
+
+      nav h1 {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: logoFadeUp 0.9s ease-out forwards;
+  animation-delay: 0.15s;
+}
+
+    }
+
+    #cart-dropdown {
+  display: none;
+  position: fixed;
+  top: 90px;
+  right: 40px;
+  background: #111;
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  z-index: 1001;
+  color: white;
+}
+#cart-icon {
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+#cart-icon:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid #19850d;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+
+  #cart-icon {
+  padding: 10px;
+  font-size: 18px;
+}
+
+}
+
+
+    .hero {
+      background: mp 4px;: url('file:///C:/Users/WINDOWS%2010%20PRO/Downloads/Red%20and%20Black%20Modern%20About%20Us%20Website%20Desktop%20Prototype.mp4');
+      background-size: cover;
+      background-position: center;
+      padding: 310px 30px;
+      text-align: center;
+      
+    }
+
+    .hero button {
+  padding: 14px 32px;
+  font-size: 1rem;
+  background:  #ccc;
+  color: #070715;
+  border: 2px solid #ccc;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.hero button:hover {
+  background: #ffffff;
+  color: #000;
+  border-color: #03f584;
+}
+
+
+.hero button:hover {
+  background: #0afb2a;
+  color: #000;
+}
+
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin: 40px 0 20px;
+    }
+
+    .about {
+      max-width: 800px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+      color: #ccc;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 60px 20px;
+    }
+
+    .product-card {
+      background: #111;
+      color: #fff;
+      padding: 30px 20px;
+      border-radius: 16px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.05);
+      border: 1px solid #444;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+   .product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(3, 255, 130, 0.2), 0 0 10px rgba(3, 255, 130, 0.2);
+  border-color: #03ff82;
+}
+
+
+    .product-card img {
+  width: 240px;
+  height: auto;
+  margin-bottom: 20px;
+  filter: grayscale(100%);
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+    }
+
+    .product-card h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .product-card p { font-size: 0.95rem; color: #ccc; margin-bottom: 20px; }
+
+    .product-card button {
+      background-color: transparent;
+      border: 1.5px solid white;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s, color 0.3s;
+      cursor: pointer;
+    }
+
+    .product-card button:hover { background-color: white; color: black; }
+
+    .checkout {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #fff;
+      color: #000;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    .checkout input, .checkout select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px 0;
+      border: 1px solid #ccc;
+    }
+
+    .checkout button {
+      padding: 10px 20px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #888;
+      background-color: #111;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .product-card { width: 90%; }
+      #cart-dropdown { right: 20px; width: 90%; }
+    }
+    
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>SVDWear</h1>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#shop">Shop</a>
+      <a href="#checkout">Checkout</a>
+      <a id="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
+    </div>
+  </nav>
+
+  <div id="cart-dropdown">
+    <h3 style="margin-bottom: 15px;">Cart Items</h3>
+    <ul id="cart-items" style="list-style: none; padding: 0;"></ul>
+    <p id="cart-empty" style="color: #888;">Your cart is empty.</p>
+  </div>
+
+  <section class="hero" id="home">
+    
+    <button onclick="document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });">Shop Now</button>
+  </section>
+  
+
+  <section id="about"> 
+    <h2 class="section-title">About Us</h2>
+    <div class="about">
+      <p>Welcome to <strong>SVDWear</strong> — we believe that bravery isn't just a feeling — it's a lifestyle.
+Every piece we create is a tribute to those who walk through fear with their heads high and their style higher.
+Our clothing fuses courage with culture, strength with street, and boldness with clean design.
+Wear it loud. Wear it proud.
+This isn’t just fashion — this is how the brave show up. <p>
+  <div class="about-journey">
+  <div class="journey-step">
+    <h3>💡 It Started With a Vision</h3>
+    <p>We didn’t just want a clothing brand. We wanted to represent the bold, the brave, the focused — people who chase greatness.</p>
+  </div>
+  <div class="journey-step">
+    <h3>🧵 Built from Grit</h3>
+    <p>No sponsors. No shortcuts. Every shirt, cap, and hoodie is designed from hustle and for hustle.</p>
+  </div>
+  <div class="journey-step">
+    <h3>🌐 A Movement Begins</h3>
+    <p>SVDWear now connects creatives, athletes, and grinders who wear their goals as boldly as they chase them.</p>
+    <style>.about-journey {
+  
+
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+.journey-step {
+  background: #111;
+  padding: 30px;
+  border-left: 4px solid #0afb2a;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+
+.journey-step.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.journey-step h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #0afb2a;
+  
+}
+</style>
+  </div>
+</div>
+
+
+ 
+    <style>.about-journey {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+.journey-step {
+  background: #111;
+  padding: 30px;
+  border-left: 4px solid #0afb2a;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+
+.journey-step.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.journey-step h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #0afb2a;
+}
+</style>
+  </div>
+</div>
+</p>
+
+
+  
+</section>
+  <section class="products" id="shop">
+    <div class="product-card">
+      <img src="https://i.pinimg.com/736x/7c/85/47/7c854782735a556a0eadad3b73fbe002.jpg"style="width: 240px; height: auto;" alt="Client project Preview"
+      <h3>Classic Hoodie</h3>
+      <p>$6.80 - Boyfriend Style Men's Solid Color Hoodie With Partial Zipper Front For Sports Essentials Hoodie.</p>
+      <button onclick="addToCart('Classic Hoodie', 6.80)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://i.pinimg.com/736x/f3/a7/af/f3a7af1fec5e88e67ef16ce1de224475.jpg" style="width: 240px; height: auto;" alt="Client project preview" 
+      <h3>Graphic Tee</h3>
+      <p>$8.50 - Minimal print, maximum style.</p>
+      <button onclick="addToCart('Classic Hoodie',8.50 )">Add to Cart</button>
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>www.svdwear</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #000; color: #fff; }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #111;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav h1 { font-size: 1.5rem; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      position: relative;
+    }
+    #cart-dropdown {
+      display: none;
+      position: fixed;
+      top: 90px;
+      right: 40px;
+      background: #111;
+      border: 1px solid #444;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      z-index: 1001;
+      color: white;
+    }
+    #cart-icon {
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+    #cart-icon:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid #1cff02;
+      box-shadow: 0 0 12px rgba(42, 244, 2, 0.2);
+      transform: scale(1.05);
+    }
+    .hero {
+      background: mp 4px;: 
+      background-size: cover;
+      background-position: center;
+      padding: 295px 30px;
+      text-align: center;
+    }
+    .hero button {
+      padding: 14px 32px;
+      font-size: 1rem;
+      background: #ccc;
+      color: #070715;
+      border: 2px solid #ccc;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+    .hero button:hover {
+      background: #13f051;
+      color: #000000;
+      border-color: #000000f9;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin: 40px 0 20px;
+    }
+    .about {
+      max-width: 800px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+      color: #ccc;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 60px 20px;
+    }
+    .product-card {
+      background: #111;
+      color: #fff;
+      padding: 30px 20px;
+      border-radius: 16px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.05);
+      border: 1px solid #444;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 18px rgba(255, 255, 255, 0.08);
+    }
+    .product-card img {
+      width: 240px;
+      height: auto;
+      margin-bottom: 20px;
+      filter: grayscale(100%);
+    }
+    .product-card h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .product-card p { font-size: 0.95rem; color: #ccc; margin-bottom: 20px; }
+    .product-card button {
+      background-color: transparent;
+      border: 1.5px solid white;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s, color 0.3s;
+      cursor: pointer;
+    }
+    .product-card button:hover { background-color: white; color: black; }
+    .checkout {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #fff;
+      color: #000;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+    .checkout input, .checkout select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px 0;
+      border: 1px solid #ccc;
+    }
+    .checkout button {
+      padding: 10px 20px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #888;
+      background-color: #111;
+    }
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 20px;
+    }
+    @media (max-width: 600px) {
+      .product-card { width: 90%; }
+      #cart-dropdown { right: 20px; width: 90%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- CONTENT CONTINUES IN NEXT MESSAGE -->
+
+    </div>
+    <div class="product-card">
+      <img src="https://i.pinimg.com/736x/78/22/a7/7822a761ea21438db3c5ab5d323cdbf0.jpg" style="width: 240px; height: auto;"  alt="Client project preview"
+      <h3>Street Cap</h3> 
+      <p> $3.43 - Top off your look with our signature cap.</p>
+      <button onclick="addToCart('Street Cap',  3.43)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="https://i.pinimg.com/736x/34/66/9f/34669fedc3cf571d56f16466c9dc37c6.jpg" style= "width: 240px; height: auto;"  alt= "Client project preview"
+      <h3>Compression Shirt</h3>
+      <p>$4.29 - Made with advanced compression fabric-shirt offers a snug and supportive fit that helps improve blood circulation and reduce muscle fatigue </p>
+      <button onclick="addToCart('Compression Shirt', 4.29)">Add to Cart</button>
+    </div>
+        <div class="product-card">
+      <img src="https://i.pinimg.com/736x/d5/4c/aa/d54caa62c71dfb7d541d0e5ef79b076a.jpg" style= "width: 240px; height: auto;" alt= Client project preview"
+      <h3>Wide leg loose baggy Pants</h3>
+      <p> $6.71 - Style yourself with this Wide leg loose baggy pants.</p>
+      <button onclick="addToCart('Wide leg loose baggy Pants', 6.71)">Add to Cart</button>
+     </div>
+        <div class="product-card">
+      <img src="https://i.pinimg.com/736x/04/91/3f/04913f8c33e357260d36bf6c033cc154.jpg" style= "width: 220px; height: auto;" alt= Client project preview"
+      <h3>Nike Free Metcon 4 Black White-black volt</h3>
+      <p>$51.00 - The Nike Free Metcon 4 combines flexibility, stability, and comfort so you can get the most out of your workout..</p>
+      <button onclick="addToCart('Nike Free Metcon 4 Black White-black volt', 51.00)">Add to Cart</button>
+       </div>
+        <div class="product-card">
+      <img src="https://i.pinimg.com/736x/4f/42/d6/4f42d6053221ac57447be20bf687f3ad.jpg" style= "width: 240px; height: auto;" alt= Client project preview"
+      <h3>Rag & bone Avery Button-Up Shirt in Blk at Nordstrom, Size Small</h3>
+      <p>$3.45 - A notched collar frames this lightweight button-up featuring clean lines and casual style. 27 1/2" length (size Medium) Notched collar Short sleeves</p>
+      <button onclick="addToCart('rag & bone Avery Button-Up Shirt', 3.45 )">Add to Cart</button>
+       </div>
+        <div class="product-card">
+      <img src="https://i.pinimg.com/736x/95/b4/f5/95b4f56d2b1091baec28157219181325.jpg" style= "width: 240px; height: auto;" alt= Client project preview"
+      <h3>4 way stretch commuter straight leg chino pants for tall men</h3>
+      <p> $5.16 - Seize the Day in Style Ready for Anything Tackle workdays or weekend brunch in these men’s tall pants. The 4-way stretch lets you move freely, while the straight fit keeps you looking sharp..</p>
+      <button onclick="addToCart('4 way stretch commuter straight leg chino pants', 5.16)">Add to Cart</button>
+       </div>
+        <div class="product-card">
+      <img src="https://i.pinimg.com/736x/a6/02/22/a60222f10c9e0c327c68928d812c98aa.jpg" style= "width: 240px; height: auto;" alt= Client project preview"
+      <h3>Zinc-Plated Alloy Frame</h3>
+      <p>$6.03 - Zinc-Plated Alloy Frame, PC Lenses, Ideal for Street Photography, Casual Outings & Parties, Casual Attire Accessory|Vintage Style Glasses|Durable Glasses
+ .</p>
+      <button onclick="addToCart('inc-Plated Alloy Frame', 6.03)">Add to Cart</button>
+       </div>
+        <div class="product-card">
+      <img src="https://i.pinimg.com/736x/89/ca/c8/89cac87a182b7198c6d71c15a3b08294.jpg" style= "width: 240px; height: auto;" alt= Client project preview"
+      <h3>Original V-Neck - Small / Light Gray</h3>
+      <p>$5.14 -Our original best selling V-Neck T-Shirt is the perfectly flattering t-shirt for tall, slim men. Made with a soft polyester rayon blend, they won’t shrink or wrinkle in the wash.</p>
+      <button onclick="addToCart('Original V-Neck ', 5.14)">Add to Cart</button>
+       </div>
+        <div class="product-card">
+      <img src="https://i.pinimg.com/736x/ed/93/7a/ed937a1403d609df05c37811e66241b4.jpg" style= "width: 240px; height: auto;" alt= Client project preview"
+      <h3>Washed Baggy Wide Leg Denim Jeans</h3>
+      <p>$6.00- Stay effortlessly stylish with the Washed Baggy Wide-Leg Denim Jeans WN11249 — featuring a relaxed fit, vintage wash, and streetwear-ready silhouette for all-day comfort and drip.</p>
+      <button onclick="addToCart('Washed Baggy Wide Leg Denim Jeans', 6.00)">Add to Cart</button>
+       </div>
+        <div class="product-card">
+      <img src="https://i.pinimg.com/736x/f1/80/4c/f1804c929f1ca9927cc4c728940a3b6a.jpg" style= "width: 240px; height: auto;" alt= Client project preview"
+      <h3>Mens Shoes - adidas Originals Samba</h3>
+      <p>$90.00 - View and buy the adidas Originals Samba OG adidas Originals Samba at Pro:Direct SOCCER.</p>
+      <button onclick="addToCart('Mens Shoes - adidas Originals Samba', 90.00)">Add to Cart</button>
+      <section><script>
+  const paymentSelect = document.getElementById("payment");
+
+  paymentSelect.addEventListener("change", () => {
+    const method = paymentSelect.value;
+
+    switch (method) {
+      case "gcash":
+        paymentSelect.style.background = "#0077cc"; // Blue for GCash
+        break;
+      case "paymaya":
+        paymentSelect.style.background = "#00c853"; // Green for PayMaya
+        break;
+      case "cod":
+        paymentSelect.style.background = "#444"; // Gray for COD
+        break;
+      default:
+        paymentSelect.style.background = "#222"; // Default dark
+        break;
+    }
+  });
+</script>
+<script>
+  const cards = document.querySelectorAll('.product-card');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('animate');
+        }, index * 150); // stagger effect
+        observer.unobserve(entry.target); // animate only once
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  cards.forEach(card => {
+    observer.observe(card);
+  });
+</script>
+</section>
+      
+      
+      
+      
+    </div>
+  </section>
+  <section class="checkout" id="checkout">
+  <h2 style="margin-bottom: 20px;">Checkout Form</h2>
+  <form onsubmit="submitOrder(event)">
+    <label for="name">Full Name</label><br />
+    <input type="text" id="name" name="name" required><br />
+
+    <label for="email">Email Address</label><br />
+    <input type="email" id="email" name="email" required><br />
+
+    <label for="address">Shipping Address</label><br />
+    <input type="text" id="address" name="address" required><br />
+
+    <label for="payment">Payment Method</label><br />
+<select id="payment" name="payment" required>
+  <option value="">Select</option>
+  <option value="gcash">GCash</option>
+  <option value="paymaya">PayMaya</option>
+  <option value="cod">Cash on Delivery</option>
+</select><br />
+
+    <button type="submit">Place Order</button>
+  </form>
+</section>
+
+    </form>
+  </section>
+  
+
+  <footer>
+    &copy; 2025 SVDWear. All rights reserved.
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-tiktok"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const cartCount = document.getElementById("cart-count");
+    const cartItemsContainer = document.getElementById("cart-items");
+    const cartEmptyText = document.getElementById("cart-empty");
+    const cartDropdown = document.getElementById("cart-dropdown");
+    const cartIcon = document.getElementById("cart-icon");
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCart();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCart(); 
+    }
+
+   function updateCart() {
+  cartItemsContainer.innerHTML = "";
+  if (cart.length === 0) {
+    cartEmptyText.style.display = "block";
+  } else {
+    cartEmptyText.style.display = "none";
+    cart.forEach((item, index) => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        ${item.name} - $${item.price.toFixed(2)}
+        <button onclick="removeItem(${index})" style="margin-left:10px; color:red; background:none; border:none; cursor:pointer;">&times;</button>
+      `;
+      cartItemsContainer.appendChild(li);
+    });
+
+    const total = cart.reduce((sum, item) => sum + Number(item.price), 0);
+    const totalLi = document.createElement("li");
+    totalLi.style.marginTop = "10px";
+    totalLi.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+    cartItemsContainer.appendChild(totalLi);
+  }
+  cartCount.textContent = cart.length;
+}
+
+
+    function submitOrder(event) {
+      event.preventDefault();
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+
+      alert("Order placed successfully!");
+      
+    // Clear cart
+cart = [];
+localStorage.setItem("cart", JSON.stringify(cart));
+
+updateCart();
+
+setTimeout(() => {
+  window.location.href = "file:///C:/Users/WINDOWS%2010%20PRO/Downloads/gianthankyoupage.html/gianthankyoupage.html/gianthankyoupage.html";
+}, 300);
+
+    }
+
+    cartIcon.addEventListener("click", (e) => {
+      e.preventDefault();
+      cartDropdown.style.display = cartDropdown.style.display === "none" ? "block" : "none";
+    });
+
+    window.addEventListener("click", function(e) {
+      if (!cartDropdown.contains(e.target) && !cartIcon.contains(e.target)) {
+        cartDropdown.style.display = "none";
+      }
+    });
+
+    updateCart();
+  </script>
+</body>
+</html>
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (!target) return;
+
+      const yOffset = -80; // optional: adjust for sticky nav
+      const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+<script>const journeySteps = document.querySelectorAll('.journey-step');
+
+const journeyObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate');
+    }
+  });
+}, { threshold: 0.3 });
+
+journeySteps.forEach(step => journeyObserver.observe(step));
+</script>
+<style>@keyframes slideDownFade {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+nav {
+  animation: slideDownFade 0.8s ease-out forwards;
+}
+</style>
+,<style>@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+<style>@keyframes logoFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+<style>@keyframes fadeUpProduct {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+}
+
+.product-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+  
+}
+
+.product-card.animate {
+  animation: fadeUpProduct 0.6s ease forwards;
+  
+  
+  
+}
+
+</style><style>@media (max-width: 768px) {
+  .products {
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-card {
+    width: 90%;
+    text-align: center;
+  }
+}
+</style><style>.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.product-card {
+  background: #111;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+}
+
+@media (max-width: 768px) {
+  .products {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .product-card {
+    width: 90%;
+  }
+
+  .about, .about-journey {
+    padding: 0 10px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .journey-step {
+    padding: 20px;
+  }
+}
+
+</style></strong></p>
+</div>
+<strong></strong></p>
+</div>
+<style>.checkout input,
+.checkout textarea,
+.checkout select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background-color: #000000;
+  color: #fff;
+}
+
+.checkout label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+</style><style>.checkout button {
+  background-color: #000000;
+  color: #eadbdb;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.checkout button:hover {
+  background-color: #0518c7;
+}
+</style><style>.order-summary {
+  background: #111;
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #0afb2a33;
+}
+
+.order-summary h3 {
+  margin-bottom: 15px;
+  color: #0afb2a;
+}
+
+.order-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-summary li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.order-summary .total {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+</style><style><style>
+  .hero {
+    position: relative;
+    height: 100vh;
+    color: white;
+    padding: 295px 30px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+</style>
+
+<div class="hero">
+  <video autoplay muted loop class="bg-video" id="bgcvideo">
+    <source src="file:///C:/Users/WINDOWS%2010%20PRO/Downloads/Red%20and%20Black%20Modern%20About%20Us%20Website%20Desktop%20Prototype%20(2).mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<style>
+  .bg-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+</style>
+
+<script>
+  const video = document.getElementById("bgcvideo");
+  setTimeout(() => {
+    video.pause();
+  }, 2000); // Stop after 2 seconds
+</script>
+
+
+  
